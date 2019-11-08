@@ -1,0 +1,14 @@
+//------------------------------------------------------------------------------
+// --------------Extract Lose function from UpdateEntitiesTimestep--------------
+//------------------------------------------------------------------------------
+
+- The change is happened in arena.cc, arena.h.
+- UpdateEntitiesTimestep is very long function. At the beginning of this
+  function, all entities are updated and checking the losing the game situation
+  came second. I decide to extract these two parts of the code and create two
+  functions called  UpdateEnt to update all entities and Lose to check if the
+  player is out of charge to lose the game.
+- This changing make the UpdateEntitiesTimestep smaller, so the reader of this
+  project will focus on checking EventCollision and other events situation. Also,
+  creating these two function will make recognizing the opening and closing 
+   brackets easier.

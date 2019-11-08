@@ -1,0 +1,70 @@
+Question 1:
+GraphicsArenaViewer::DrawUsingNanoVG() is drawing the entities of the arena which are obstacles, robot, and Homebase. Also, it calls nvgFontSize, nvgFontFace and nvgTextAlignthe to draw the font.
+
+//------------------------------------------------------
+
+Question 2:
+In the main.cc file we create an object called app and its type is GraphicsArenaViewer and run the object. Running the object will enter the nanogui::mainloop() and all entities will be drawn in the arena.
+
+//------------------------------------------------------
+
+Question 3:
+The RechargeStation is created in the arena.cc class. The RechargeStation.h class inherits from the obstacle class. So, the RechargeStation is drawn as an obstacle. In the graphics_arena_viewer.cc class, all obstacles are drawn by calling DrawObstacle.
+ 
+//------------------------------------------------------
+
+Question 4:
+•       The robot, the parent class is robot class.
+•       The recharged station, the parent class is the rechargedStation class which inherits from the obstacle. The RechargeStation class is to pass the name, color, and radius. Otherwise, it is handled as an obstacle.
+•       Home base, the parent class is HomeBase class.
+•       The obstacle, the parent class is the obstacle.
+
+//------------------------------------------------------
+
+Question 5:
+In the function called CheckForEntityCollision and CheckForEntityCollision which are called in UpdateEntitiesTimestep. There is more than one checker function. One is for arena boundaries, one for the rechargedStation, and the other for the obstacles.
+
+//------------------------------------------------------
+
+Question 6:
+when UpdateEntitiesTimestep is called in AdvanceTime the Arena.
+
+//------------------------------------------------------
+
+Question 7:
+In arena.cc the function CheckForEntityOutOfBounds is called. 
+    The right side, it checks if Xpostion+radius >= x_dim_ which is the boundaries of the window, the collided will happened, so the position re-update and the angel is changed to the opposite side which is -180. 
+    The left side, it checks if Xpostion-radius <= x_dim_ which is the boundaries of the window, the collided will happened, so the position re-update and the angel is changed to the opposite side which is 0. 
+    The bottom side, it checks if the Ypostion+radius >= y_dim_ which is the boundaries of the window, the collided will happened, so the position and angle will re-update 
+    The top side, it checks if the Ypostion-radius <= y_dim_ which is the boundaries of the window, the collided will happen, so the position and angle will re-update 
+  
+//------------------------------------------------------
+
+Question 8:
+In CheckForEntityCollision function, the two entities passed the robot is one of them. Firstly, we need to find the x and y position for two entities. Then, we need to find the square of the distance between them. 
+If the distance between them larger than the radius of two entities and collision_delta, the collided() will be false which means it does not happen. Otherwise, the  collided() will be true
+
+//------------------------------------------------------
+
+Question 9:
+
+It checks if the ec.collided() is true or not. We will call the accept function to deiced if the sensor should be the active mode or not. So, if the collided() is true, the sensor is true. 
+//------------------------------------------------------
+
+Question 10:
+To update the heading_angle_ if the sensor is activated.
+
+//------------------------------------------------------
+
+Question 11:
+Pass the new time in the function UpdateSimulation in -> call AdvanceTime from arena class -> call UpdateEntitiesTimestep from arena -> call TimestepUpdate from robot class to update the velocity and the position 
+
+//------------------------------------------------------
+
+Question 12:
+New x position = con(angle of the old position*pi/180)
+new_pos.x += cos(ent->heading_angle()*M_PI/180.0)*ent->speed()*dt; 
+
+New y position = sin(angle of the old position*pi/180)
+new_pos.y += sin(ent->heading_angle()*M_PI/180.0)*ent->speed()*dt;
+ 

@@ -1,0 +1,36 @@
+// Movie.cpp
+#include "Movie.h"
+
+const int Movie::CHILDRENS;
+const int Movie::REGULAR;
+const int Movie::NEW_RELEASE;
+
+int frequentRenterPoints = 0;
+
+
+int Movie::getTotalFrequentRenterPoints() const
+{
+  frequentRenterPoints = frequentRenterPoints + 1;
+
+ }
+
+double Movie::getCharge( int daysRented ) const
+{
+  double result = 0;
+  switch ( getPriceCode() ) {
+    case Movie::REGULAR:
+      result += 2;
+      if ( daysRented > 2 )
+        result += ( daysRented - 2 ) * 1.5 ;
+      break;
+    case Movie::NEW_RELEASE:
+      result += daysRented * 3;
+      break;
+    case Movie::CHILDRENS:
+      result += 1.5;
+      if ( daysRented > 3 )
+        result += ( daysRented - 3 ) * 1.5;
+      break;
+  }
+  return result;
+}

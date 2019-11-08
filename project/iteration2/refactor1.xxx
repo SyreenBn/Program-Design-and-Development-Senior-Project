@@ -1,0 +1,44 @@
+//------------------------------------------------------------------------------
+
+// -----------------Create function for calculating the distance----------------
+
+//------------------------------------------------------------------------------
+
+- The change is in the arena.cc, arena.h class.
+
+//------------------------------------------------------------------------------
+// ---------------- the old code is --------------------------------------------
+//------------------------------------------------------------------------------
+
+calculating the distance in each function.
+
+double dist = std::sqrt(
+   std::pow(ent2_x - ent1_x, 2) + std::pow(ent2_y - ent1_y, 2));
+  if ((dist > ...
+
+//------------------------------------------------------------------------------
+// ---------------- the new code is --------------------------------------------
+//------------------------------------------------------------------------------
+
+double Arena::Distacne(Position ent1, Position ent2){
+  double ent1_x = ent1.x;
+  double ent1_y = ent1.y;
+  double ent2_x = ent2.x;
+  double ent2_y = ent2.y;
+    double dist = std::sqrt(
+    std::pow(ent2_x - ent1_x, 2) + std::pow(ent2_y - ent1_y, 2));
+  return dist;
+}
+
+
+- The new method is Distacne(Position ent1, Position ent2) in the arena.cc and
+  it is located before CheckForEntityCollision function. I call this function in
+  CheckForEntityCollision, CheckForEntityProximity and
+  CheckForRobotvoidDistressCall when I check the distance between two entities.
+
+- This function is pass two Position parameters, which is the position of the
+  first entity and the second entity. This function calculate the distance
+  between these two points. I prefer to create a function for this part because
+  in each checking function I create a local variable called dis. So, when I did
+  this change I do not need to use local variable, I just call the function in
+  the if statement.

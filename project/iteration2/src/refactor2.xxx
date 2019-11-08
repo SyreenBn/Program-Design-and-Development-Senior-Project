@@ -1,0 +1,34 @@
+//------------------------------------------------------------------------------
+// -----------------------------change the name of the Obstacle vector----------
+//------------------------------------------------------------------------------
+
+- The first variable in the arena.cc class.
+- The old name is (res) and the new one is (obstcls)
+- The old vector name is res. This variable is named in the base class. When
+  I was working on iteration 3 I decide to make the declaration of the vector
+  in arena.h to make the function more simpler. After three days of this changing,
+  I forgot that I move the declaration of the vector to the arena.h class and
+  I did not know what this vector use to because the name of the vector is not
+  refer to the obstacles. So, for that reason, I decided to change this name in
+  refactor2.
+
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+// -----------------------------change the name of the loseGame variable--------
+//------------------------------------------------------------------------------
+
+- The first variable in the arena.cc, player.h, player.cc and
+  graphicsArenaViewer.cc class.
+- The old name of the variable is loseGame and the new one is endGame.
+- This variable is use to print the sentence of end the game, either winning
+  or losing the game. When the player won the game loseGame be "WOW, YOU
+  WON THE GAME" which is does not make sense and if another programmer read
+  the code, he/she could be confused. So, I change the function and the variable.
+
+  //------------------------------------------------------------------------------
+  //------------------------------------------------------------------------------
+  //------------------------------------------------------------------------------
